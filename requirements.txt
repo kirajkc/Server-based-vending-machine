@@ -1,0 +1,7 @@
+Django==2.1.5
+django-chartit==0.2.9
+django-filter==2.2.0
+djangorestframework==3.11.0
+Markdown==3.2.1
+mysqlclient==1.4.6
+pytz==2019.3

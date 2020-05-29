@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="middle-right">
+                        <div class="paratop"><p>ADD ITEMS</p></div>
+                        <div class="paramid">
+                            <div class="card4">
+                                <table class="content-table table-sortable1">
+                                    <thead>
+                                      <tr>
+                                        <th>ID</th>
+                                        <th>ITEM</th>
+                                        <th>QUANTITY</th>
+                                        <th>PRICE</th>
+                                      </tr>
+                                    </thead>
+                                    
+                                     <tbody>
+                                        {% for chart in chart.all%}
+                                        <tr>
+                                          <td>{{chart.tagid}}</td>
+                                          <td>{{chart.item}}</td>
+                                          <td>{{chart.quantity}}</td>
+                                          <td>{{chart.price}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                </table> 
+                                <script src="static/js/tablesort1.js"></script>
+                                <br/>
+                                ID:
+                                <br/>
+                                <input type ="number" name="tagid" />
+                                <br/>
+                                 Item:
+                                <br/>
+                                <input type ="text" name="item" />
+                                <br/>
+                                Quantity:
+                                <br/>
+                                <input type ="number" name="quantity" />
+                                <br/>
+                                Price:
+                                <br/>
+                                <input type ="number" name="price" />
+                                <br/>
+                                <input type="submit" name="submit" />
+
+                            </div>
+                            
+                        </div>
+                        </div>
+                        
+</div>
+</form>
+{% endblock%}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{% url 'update' update.id %}" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<div class="middle-right">
+                        <div class="paratop"><p>UPDATE ITEMS</p></div>
+                        <div class="paramid">
+                            <div class="card4">
+                                <table class="content-table table-sortable1">
+                                    <table class="content-table table-sortable">
+                                                <thead>
+                                                    <tr>
+                                                    <th>ID</th>
+                                                    <th>ITEM</th>
+                                                    <th>QUANTITY</th>
+                                                    <th>PRICE</th>
+                                                    </tr>
+                                                </thead>
+                                                                        
+                                                <tbody>
+                                                    <tr>
+                                                    <td>{{update.tagid}}</td>
+                                                    <td>
+                                                    {{update.item}}
+                                                    </td>
+                                                    <td>{{update.quantity}}</td>
+                                                    <td>{{update.price}}</td>
+                                                    </tr>
+                                                </tbody>
+                                    </table> 
+                                <script src="static/js/tablesort1.js"></script>
+                                <br/>
+                                 ID:
+                                <br/>
+                                <input type ="number" name="tagid" value="{{update.tagid}}" />
+                                <br/>
+                                 Item:
+                                <br/>
+                                <input type ="text" name="item" value="{{update.item}}"/>
+                                <br/>
+                                Quantity:
+                                <br/>
+                                <input type ="number" name="quantity" value="{{update.quantity}}" />
+                                <br/>
+                                Price:
+                                <br/>
+                                <input type ="number" name="price" value="{{update.price}}"/>
+                                <br/>
+                                <input type="submit" name="submit" />
+                                
+
+                            </div>
+                        
+                        </div>
+                        </div>
+                        
+                        
+</div>
+{% endblock content %}
+</form>

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="middle-right">
+                        <div class="paratop"><p>EDIT ITEMS</p></div>
+                        <div class="paramid">
+
+                            <div class="card4">Product list
+                                <table class="content-table table-sortable1">
+                                    <thead>
+                                        <tr>
+                                        <th>ID</th>
+                                        <th>ITEM</th>
+                                        <th>QUANTITY</th>
+                                        <th>PRICE</th>
+                                        </tr>
+                                    </thead>
+                                                            
+                                    <tbody>
+                                        {% for chart in chart.all%}
+                                        <tr>
+                                        <td> {{chart.tagid}} </td>
+                                        <td> {{chart.item}} </td>
+                                        <td>{{chart.quantity}}</td>
+                                        <td>{{chart.price}}
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        <a href="{% url "update" chart.id%}" style="color:#FFFFFF"><i class="fas fa-edit"></i></a>
+                                        &nbsp;
+                                        <a href ="{% url "delete" chart.id%}" style="color:#FFFFFF"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <script src="static/js/tablesort1.js"></script>
+
+                           
+                            </div>
+
+                        </div>
+                        </div>
+                        
+                        
+</div>
+{% endblock %}

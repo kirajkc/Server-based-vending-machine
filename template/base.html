@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="#" rel="stylesheet">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="{% static "css/main.css"%}">
+        <Title>Dashboard</Title>
+        
+
+</head>
+    <body>
+        <a href="#" class="material-icons floating-btn">add</a>
+
+        <div class="body-left">   
+            <div class="body-list">
+                <input type="checkbox" id="check">
+                <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+                <i class="fas fa-times" id="cancel"></i>
+                </label>
+                <div class="sidebar">
+                <header>My App</header>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+                        <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
+                        <li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+                        <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+                        <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+                        <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="mainbg">
+            
+            <section class="top">
+                    
+                    <div class="logo"><a href="{%url "home"%}">@DIGI.VEND</a>
+                    </div>
+                        
+                    <div class="searchbar">
+                            <div class="clear"><h1><a href="#">DigiVend</a> : The Modern Way for Vending</h1></div>
+                            <div class="searchbar1">
+                                <input class="search-txt" type="text"  placeholder="Type to search">
+                                <a class="search-btn" href="#">
+                                    <i class="material-icons">search</i>
+                                </a>
+                            </div>
+                            <div class="searchbar2">
+                                    <input type="button" value="Go">
+                            </div>
+                            
+                    </div>
+                      
+            </section>
+           
+            <section class="mid" >
+                <div class="middle" >
+                    <div class="middle-left">   
+                        <div class="detail"><p> Introducing<br><b>THE FUTURE</b></p>
+                        </div>
+                        <div class="left-list">
+                            <div class="midleft-list">
+                               
+                              <ul>
+                              <header>Dashboard</header>
+                                <li><a href="{%url "home"%}"><i class="fas fa-home"></i>Home</a></li>
+                                <li><a href="{%url "add"%}"><i class="fas fa-plus" style="font-size:24px;"></i>Add</a></li>
+                                {% comment %} <li><a href="{%url "edit"%}"><i class="fas fa-edit"></i>Edit</a></li> {% endcomment %}
+                                <li><a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt" style="font-size:22px;"></i>Logout<span class="sr-only">(current)</span></a>
+                                <form Id='logout' method="POST" action={% url 'logout' %} >
+                                {% csrf_token %}
+                                <input type="hidden" />
+                                </form>
+                                </li>
+                                <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+
+
+                    </div>
+                    {% block content %}
+                    {% endblock content %}
+                
+            </section>
+           
+            <section class="bot">
+                <footer class="bottom">
+                    
+                    <div class="contact">
+                    <p><b>Contact Info:</b><br>@12345678<br>PO.BOX:- NO:213</p>
+                    </div>
+                    
+                </footer>
+            </section>
+
+        </div>
+
+        
+    </body>
+</html>

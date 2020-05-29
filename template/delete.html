@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="middle-right">
+                        <div class="paratop"><p>DELETE ITEMS</p></div>
+                        <div class="paramid">
+                            <div class="card4">
+                                <table class="content-table table-sortable">
+                                            <thead>
+                                                <tr>
+                                                <th>ID</th>
+                                                <th>ITEM</th>
+                                                <th>QUANTITY</th>
+                                                <th>PRICE</th>
+                                                </tr>
+                                            </thead>
+                                                                    
+                                            <tbody>
+                                            {% for chart in chart.all%}
+                                                <tr>
+                                                <td>
+                                                {{chart.tagid}}
+                                                </td>
+                                                <td>
+                                                {{chart.item}}
+                                                </td>
+                                                <td>{{chart.quantity}}</td>
+                                                <td>{{chart.price}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                </table> 
+                                <script src="static/js/tablesort1.js"></script>
+                                <br/>
+                                <b>Do you want to delete<i> <l1 style='color:red'>{{required.item}} </l1></i>details permanently?</b>
+                                <p>
+                                <a href="{% url 'Remove' required.id%}" class="btn btn-primary" style="color:#FF0000"><b>Yes</b></a>
+                                &nbsp;
+                                <a href="{% url 'home'%}" class="btn btn-primary" style="color:#00FF00"><b>No</b></a>
+                                </p>
+
+                            </div>
+                        </div>
+                        </div>
+                        
+</div>
+{% endblock content %}
