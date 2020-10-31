@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="middle-right">
+                        <div class="paratop"><p>SALES</p></div>
+                        <div class="paramid">
+                            <div class="card4">{{d}}
+                                <table class="content-table table-sortable1">
+                                    <thead>
+                                      <tr>
+                                        <th>ID</th>
+                                        <th>ITEM</th>
+                                        <th>TOTAL SOLD</th>
+                                        <th>INCOME</th>
+                                        <th>TIME</th>   
+                                      </tr>
+                                    </thead>
+                                    
+                                     <tbody>
+                                        {% for s1 in sold.all%}
+                                        <tr>
+                                          <td>{{s1.tagid}}</td>
+                                          <td>{{s1.item}}</td>
+                                          <td>{{s1.quantity}}</td>
+                                          <td>{{s1.price}}</td>
+                                          <td>{{s1.saleTime}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                </table> 
+                                <script src="static/js/tablesort1.js"></script>
+                            </div>
+                        </div>
+                        </div>
+                        
+</div>
+
+
+
+{% endblock %}

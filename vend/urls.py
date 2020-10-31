@@ -16,19 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from  chart import views 
-from chart.views import get_data
-
+from chart.views import get_data, get_saledata
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('add/',views.add,name='add'),
     path('api/chartview',get_data,name="apidata"),
+    path('api1/chartview',get_saledata,name="apidata1"),
     path('base/',views.base,name='base'),
     path('login/',views.login,name='login'),
     path('logout/',views.logout,name='logout'),
-    path('update/<int:chart_id>',views.update,name="update"),
-    path('erase/<int:chart_id>',views.erase,name="delete"),
-    path('Remove/<int:chart_id>',views.Remove,name="Remove"),
-    # path('edit/',views.edit,name='edit')
+    path('update/<int:vend_id>',views.update,name="update"),
+    path('erase/<int:vend_id>',views.erase,name="delete"),
+    path('Remove/<int:vend_id>',views.Remove,name="Remove"),
+    path('sold/',views.sold,name='sold'),
+    path('saleschart1/',views.saleschart1,name='saleschart1'),
+    path('saleschart2/',views.saleschart2,name='saleschart2'),
+    
 ]
+

@@ -3,172 +3,183 @@
 {% block content %}
 
 <div class="middle-right">
-                        <div class="paratop"><p>Dashboard</p></div>
+                        <div class="paratop"><p>Dashboard{{categories.value}}</p></div>
                         <div class="nested-right">
                             <div class="box1">
-                             <b><p>PRODUCTS
+                             <b><p>VEND1 SOLD ITEMS
                              <br/>
-                                5
+                                {{c}}
                             </p></b>
                             </div>
                             <div class="box2">
-                             <b><p>TOTAL SOLD
+                             <b><p>VEND1 INCOME
                              <br/>
-                            20
+                            {{d}}
                             </p></b>
                             </div>
                             <div class="box3">
-                            <b> <p>REMAINING
-                            <br/>
-                                50
-                             </p></b>
+                            <b><p>VEND2 SOLD ITEMS
+                             <br/>
+                                {{e}}
+                            </p></b>
                             </div>
-                            <div class="box4">Box4</div>
-                            <div class="box5">box5</div>
-                            <div class="box6">box6</div>
-                            <div class="box7">
+                            <div class="box4">
+                            <b><p>VEND2 INCOME
+                             <br/>
+                                {{f}}
+                            </p></b>
+                            </div>
+                            <div class="box5">
+                            <b><p>TOTAL SOLD ITEMS
+                             <br/>
+                                {{g}}
+                            </p></b></div>
+                            <div class="box6">
+                            <b><p>TOTAL INCOME
+                             <br/>
+                                {{h}}
+                            </p></b>
+                            </div>
+                            <div class="box8">
                                 <div class="container1" >
-                                   <script>
-                                          var endpoint='{% url 'apidata'%}'
-                                          var label=[]
-                                          var defaultdata = []
-                                          $.ajax({
-                                              method: "GET",
-                                              url: endpoint,
-                                              success: function(data){
-                                                label = data.labels
-                                                defaultdata = data.default
-                                                var ctx = document.getElementById('myChart1').getContext('2d');
-                                                var myChart = new Chart(ctx, {
-                                                    type: 'doughnut',
-                                                    data: {
-                                                        labels: label,
-                                                        datasets: [{
-                                                            label: '# of Votes',
-                                                            
-                                                            data: defaultdata,
-                                                            backgroundColor: [
-                                                                'rgba(255, 99, 132, 1)',
-                                                                'rgba(54, 162, 235, 1)',
-                                                                'rgba(255, 206, 86, 1)',
-                                                                'rgba(75, 192, 192, 1)',
-                                                                'rgba(153, 102, 255, 1)',
-                                                                'rgba(255, 159, 64, 1)'
-                                                            ],
-                                                            borderColor: [
-                                                                'rgba(255, 99, 132, 1)',
-                                                                'rgba(54, 162, 235, 1)',
-                                                                'rgba(255, 206, 86, 1)',
-                                                                'rgba(75, 192, 192, 1)',
-                                                                'rgba(153, 102, 255, 1)',
-                                                                'rgba(255, 159, 64, 1)'
-                                                            ],
-                                                           
-                                                            borderWidth:2,
-                                                            hoverBorderColor:'#444'
-                                                        }]
-                                                    },
-                                                    options: {
-                                                                title:
-                                                                {
-                                                                display:false,
-                                                                text:'# of votes',
-                                                                fontSize:15,
-                                                                },
-                                                                legend:
-                                                                {
-                                                                   position:'right',
-                                                                },
-                                                                scales: {
+                                  <script>
+                                    var endpoint='{% url 'apidata'%}'
+                                    var label=[]
+                                    var defaultdata = []
+                                    var line1=[]
+                                    $.ajax({
+                                        method: "GET",
+                                        url: endpoint,
+                                        success: function(data){
+
+                                        function color() {
+                                                    var letters = '0123456789ABCDEF'.split('');
+                                                    var color = '#';
+                                                    for (var i = 0; i < 6; i++ ) {
+                                                    color += letters[Math.floor(Math.random() * 16)];
+                                                    }
+                                                    return color;
+                                                    }
+                                        
+                                        label1 = data.labels1
+                                        line1  = data.line1
+                                        defaultdata1 = data.default1
+                                        var ctx = document.getElementById('myChart1').getContext('2d');
+                                        var myChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: label1,
+                                                datasets: [{
+                                                    
+                                                    label: 'Vend2', 
+                                                    data: defaultdata1,
+                                                    backgroundColor: color,
+                                                     }]
+                                            },
+                                            options: {
+                                                        title:
+                                                        {
+                                                        display:true,
+                                                        text:'Quantity V2',
+                                                        fontSize:15,
+                                                        fontColor:'white'
+                                                        },
+                                                        legend:
+                                                        {
+                                                            display:false
+                                                        },
+                                                        scales:  {
                                                                     yAxes: [{
-                                                                        display:false,
-                                                                        stacked:true,
                                                                         ticks: {
-                                                                            beginAtZero: true
-                                                                                },
-                                                                            gridLines:
-                                                                            {
-                                                                                display:false,
-                                                                            }
-                                                                            }]
+                                                                            beginAtZero: true,
+                                                                            fontColor: 'white'
+                                                                                }
+                                                                            }],
+                                                                    xAxes: [{
+                                                                        ticks: {
+                                                                            fontColor: 'white'
+                                                                               }
+                                                                             }]
                                                                         },
                                                                 responsive:true,
                                                                 maintainAspectRation:false
-                                            
-                                                              }
-                                                            });
- 
-                                              },
-                                              error: function(error_data){
-                                                console.log("error")
-                                                console.log(error_data)
-                                              }
-                                          })
 
-                                          </script>
+                                                        }
+                                                    });
 
-                                          <canvas id="myChart1" width="150" height="100"></canvas>
+                                        },
+                                        error: function(error_data){
+                                        console.log("error")
+                                        console.log(error_data)
+                                        }
+                                    })
+
+                                    </script>
+
+                                    <canvas id="myChart1" width="150" height="100"></canvas>
 
                                 </div>
                             </div>
-                            <div class="box8">
+                            <div class="box7">
                                 <div class="container2" >
                                    
                                    <script>
                                           var endpoint='{% url 'apidata'%}'
                                           var label=[]
                                           var defaultdata = []
+                                          var line = []
                                           $.ajax({
                                               method: "GET",
                                               url: endpoint,
                                               success: function(data){
+                                                function color() {
+                                                         var letters = '0123456789ABCDEF'.split('');
+                                                         var color = '#';
+                                                         for (var i = 0; i < 6; i++ ) {
+                                                         color += letters[Math.floor(Math.random() * 16)];
+                                                         }
+                                                         return color;
+                                                         }
                                                 label = data.labels
                                                 defaultdata = data.default
+                                                line = data.line
                                                 var ctx = document.getElementById('myChart').getContext('2d');
                                                 var myChart = new Chart(ctx, {
                                                     type: 'bar',
                                                     data: {
                                                         labels: label,
                                                         datasets: [{
-                                                            label: 'Quanity',
-                                                            
+                                                            label: 'Vend1',
                                                             data: defaultdata,
-                                                            backgroundColor: [
-                                                                'rgba(255, 99, 132, 1)',
-                                                                'rgba(54, 162, 235, 1)',
-                                                                'rgba(255, 206, 86, 1)',
-                                                                'rgba(75, 192, 192, 1)',
-                                                                'rgba(153, 102, 255, 1)',
-                                                                'rgba(255, 159, 64, 1)'
-                                                            ],
-                                                            borderColor: [
-                                                                'rgba(255, 99, 132, 1)',
-                                                                'rgba(54, 162, 235, 1)',
-                                                                'rgba(255, 206, 86, 1)',
-                                                                'rgba(75, 192, 192, 1)',
-                                                                'rgba(153, 102, 255, 1)',
-                                                                'rgba(255, 159, 64, 1)'
-                                                            ],
-                                                           
+                                                            backgroundColor: color,
                                                             borderWidth:2,
-                                                            hoverBorderColor:'#444'
-                                                        }]
+                                                     }]
                                                         
                                                     },
                                                     options: {
                                                                 title:
                                                                 {
-                                                                display:false,
-                                                                text:'# of votes',
+                                                                display:true,
+                                                                text:'Quantity V1',
                                                                 fontSize:15,
-                                                                fontColor:'grey'
+                                                                fontColor:'white'
+                                                                },
+                                                                legend:
+                                                                {
+                                                                    display:false
                                                                 },
                                                                 scales: {
                                                                     yAxes: [{
                                                                         ticks: {
-                                                                            beginAtZero: true
+                                                                            beginAtZero: true,
+                                                                            fontColor: 'white'
                                                                                 }
-                                                                            }]
+                                                                            }],
+                                                                    xAxes: [{
+                                                                        ticks: {
+                                                                            fontColor: 'white'
+                                                                               }
+                                                                             }]
                                                                         },
                                                                 responsive:true,
                                                                 maintainAspectRation:false
@@ -189,30 +200,62 @@
 
                                 </div>
                             </div>
-                            <div class="box10">PRODUCTS
+                            <div class="box10">VEND1
                                 <table class="content-table table-sortable1">
                                     <thead>
                                       <tr>
                                         <th>ID</th>
                                         <th>ITEM</th>
                                         <th>QUANTITY</th>
-                                        <th>PRICE</th>
+                                        <th>PRICE/UNIT</th>
                                       </tr>
                                     </thead>
                                     
                                      <tbody>
-                                        {% for chart in chart.all%}
+                                        {% for vend in vend1.all%}
                                         <tr>
-                                        <td>{{chart.tagid}}</td>
-                                        <td>{{chart.item}}</td>
-                                        <td>{{chart.quantity}}</td>
-                                        <td>{{chart.price}}
+                                        <td>{{vend.tagid}}</td>
+                                        <td>{{vend.item}}</td>
+                                        <td>{{vend.quantity}}</td>
+                                        <td>{{vend.price}}
                                         &nbsp;
                                         &nbsp;
                                         &nbsp;
-                                        <a href="{% url "update" chart.id%}" style="color:#FFFFFF"><i class="fas fa-edit"></i></a>
+                                        <a href="{% url "update" vend.id%}" style="color:#FFFFFF"><i class="fas fa-edit"></i></a>
                                         &nbsp;
-                                        <a href ="{% url "delete" chart.id%}" style="color:#FFFFFF"><i class="fas fa-trash-alt"></i></a>
+                                        <a href ="{% url "delete" vend.id%}" style="color:#FFFFFF"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                        </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                </table> 
+                                <script src="static/js/tablesort2.js"></script>
+                            </div>
+
+                            <div class="box11">VEND2
+                                <table class="content-table table-sortable1">
+                                    <thead>
+                                      <tr>
+                                        <th>ID</th>
+                                        <th>ITEM</th>
+                                        <th>QUANTITY</th>
+                                        <th>PRICE/UNIT</th>
+                                      </tr>
+                                    </thead>
+                                    
+                                     <tbody>
+                                        {% for vend in vend2.all%}
+                                        <tr>
+                                        <td>{{vend.tagid}}</td>
+                                        <td>{{vend.item}}</td>
+                                        <td>{{vend.quantity}}</td>
+                                        <td>{{vend.price}}
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        <a href="{% url "update" vend.id%}" style="color:#FFFFFF"><i class="fas fa-edit"></i></a>
+                                        &nbsp;
+                                        <a href ="{% url "delete" vend.id%}" style="color:#FFFFFF"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                         </tr>
                                         {% endfor %}
@@ -226,66 +269,62 @@
                             <div class="container3" >
                                    
                                    <script>
-                                          var endpoint='{% url 'apidata'%}'
-                                          var label=[]
-                                          var defaultdata = []
+                                          var endpoint='{% url 'apidata1'%}'
                                           var price=[]
+                                          var vend = []
                                           $.ajax({
                                               method: "GET",
                                               url: endpoint,
                                               success: function(data){
-                                                label = data.labels
-                                                defaultdata = data.default
-                                                price = data.price
+                                                  function color() {
+                                                         var letters = '0123456789ABCDEF'.split('');
+                                                         var color = '#';
+                                                         for (var i = 0; i < 6; i++ ) {
+                                                         color += letters[Math.floor(Math.random() * 16)];
+                                                         }
+                                                         return color;
+                                                         }
+                                                price = data.totalprice
+                                                vend = data.vend
                                                 var ctx = document.getElementById('myChart2').getContext('2d');
                                                 var myChart2 = new Chart(ctx, {
-                                                    type: 'line',
+                                                    type: 'bar',
                                                     data: {
-                                                        labels: label,
+                                                        labels: vend,
                                                         datasets: [{
-                                                            label: 'Quantity',
-                                                            
-                                                            data: defaultdata,
-                                                            borderColor: [
-                                                                'rgba(54, 162, 235, 0.8)'
-                                                            ],
-                                                           
-                                                            borderWidth:3,
-                                                            pointBorderColor:'rgba(54, 162, 235, 1)'
-                                                            
-                                                           
-                                                            
-                                                        },
-                                                        {
-                                                        label: 'Price',
-                                                            
+                                                            label: 'Salesprice',    
                                                             data: price,
-                                                            borderColor: [
-                                                                'rgba(255, 99, 132, 0.8)'
-                                                            ],
-                                                           
-                                                            borderWidth:3,
-                                                            pointBorderColor:'rgba(255, 99, 132, 1)'
-                                                           
+                                                            backgroundColor:color ,
+                                                            borderWidth:2
                                                         }
-                                                        
                                                         ]
                                                         
                                                     },
                                                     options: {
                                                                 title:
                                                                 {
-                                                                display:false,
-                                                                text:'# of votes',
+                                                                display:true,
+                                                                text:'Total Sales',
                                                                 fontSize:15,
-                                                                fontColor:'grey'
+                                                                fontColor:'white'
+                                                                },
+                                                                
+                                                                legend:
+                                                                {
+                                                                    display:false
                                                                 },
                                                                 scales: {
                                                                     yAxes: [{
                                                                         ticks: {
-                                                                            beginAtZero: true
+                                                                            beginAtZero: true,
+                                                                            fontColor:'white'
                                                                                 }
-                                                                            }]
+                                                                            }],
+                                                                    xAxes: [{
+                                                                        ticks: {
+                                                                            fontColor: 'white'
+                                                                               }
+                                                                             }]
                                                                         },
                                                                 responsive:true,
                                                                 maintainAspectRation:false
@@ -315,4 +354,5 @@
                     </div>
 
 </div>
+
 {% endblock  %}           

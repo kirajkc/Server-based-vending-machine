@@ -7,12 +7,6 @@
   list-style: none;
   text-decoration: none;
 }
-/* 
-
- */
-
-
-
 
 body
 {
@@ -34,85 +28,6 @@ body
     padding: 0;
     background-color: #063146;
 }
-
-    .body-list
-    {
-        position: fixed;
-    }
-        .sidebar {
-        position: fixed;
-        left: -170px;
-        width: 165px;
-        height: 100%;
-        background: #063146c7;
-        transition: all .4s ease;
-        }
-            .sidebar header {
-            font-size: 1.3em;
-            color: white;
-            line-height: 80px;
-            text-align: left;
-            padding-left: 1.3em   ;
-            background: #063146;
-            user-select: none;
-            }
-                .sidebar ul a{
-                display: block;
-                height: 100%;
-                width: 100%;
-                line-height: 65px;
-                font-size: 1em;
-                color: white;
-                padding-left: 1em;
-                box-sizing: border-box;
-                transition: .3s;
-                }
-                ul li:hover a{
-                padding-left: 2em;
-                }
-                .sidebar ul a i{
-                margin-right: .8em;
-                }
-        #check{
-                display: none;
-                }
-        label #btn,label #cancel{
-                position: absolute;
-                background: #042331;
-                border-radius: 3px;
-                cursor: pointer;
-        }
-        label #btn{
-                left: .5em;
-                top: .5em;
-                font-size: 1.5em;
-                color: white;
-                padding: .2em .4em;
-                transition: all .5s;
-                }
-        label #cancel{
-                z-index: 1111;
-                left: -120px;
-                top: .5em;
-                font-size: 1.2em;
-                color: #0a5275;
-                padding: .2em .4em;
-                transition: all .4s ease;
-                }
-        #check:checked ~ .sidebar{
-                left: 0;
-                }
-        #check:checked ~ label #btn{
-                left: 0;
-                opacity: 0;
-                pointer-events: none;
-                }
-        #check:checked ~ label #cancel{
-                left: 125px;
-                }
-
-
-
 
 
 .mainbg
@@ -137,35 +52,12 @@ body
     display: grid;
     grid-template-rows: 2fr auto;
 }
-
         .logo
         {
             margin:0;
-            border:none;
-            padding: 0 .5em;
-            text-align: left;
+            border:none;  
+            padding: 0 ;  
         }
-
-            .logo a
-            {
-                
-                text-decoration: none;
-                font-size: .8rem;
-                color: white;
-
-            }
-
-        .searchbar
-        {
-           
-            margin: 0;
-            padding-left: 0.5em;
-            display: grid;
-            grid-template-columns: 6fr auto 2.4em ;
-            grid-column-gap: .3em;
-                
-        }
-
             .clear
             {
                 margin: 0;
@@ -184,115 +76,7 @@ body
             {
                 color:white;
             }
-
-            .searchbar1
-            {
-                height: 1.7em;
-                margin:.1em ;
-                padding: 0.1em;
-                position: relative;
-                background:#2f3640;
-                border-radius: 2em;
-                border: rgb(245, 142, 8) 1.2px solid;
-                align-self: stretch;
-                justify-self: stretch;
-                
-                
-            }
-
-
-
-            .search-txt
-            {
-                border: rgb(245, 142, 8) 1.2px dotted; 
-                
-                margin: .2em 0;
-                padding : .1em 0;
-
-                height:1.5em;
-                width: 0;
-                justify-self: stretch;
-                align-self: stretch;
-                border:none ;
-                background:none;
-                outline: none;
-                float: left;
-                color: white;
-                transition: .4s;
-                
-                
-
-            }
-            
-
-            .search-btn
-            {
-                margin:.1em;
-                padding:0;
-                color: #424446f1;
-                background:#424446f1;
-                border-radius: 50%;
-                float: right;
-                width: 1.5em;
-                height:1.5em;
-                display: flex;
-                justify-content: stretch;
-                align-items:stretch;
-                transition: .4s;
-                text-decoration: none;
-            }
-            
-
-            .searchbar1:hover> .search-txt
-            {
-                
-                border:none;
-                border-radius: 1em;
-                align-content: stretch;
-                justify-self: right;
-                width: 10em;
-                height:1.5em;
-                margin: .2em;
-                padding : .1em 0;
-
-                
-
-            }
-            .searchbar1:hover> .search-btn
-            {
-                
-                background: white;
-                color: rgb(245, 142, 8);
-                
-            }
-
-            
-            .searchbar2
-            {
-                margin: 0.1em;
-                padding: 0 ;
-                align-self:stretch;
-                justify-self: stretch;
-                height: fit-content;
-            } 
-
-            
-            
-           
-
-            .searchbar2 input[type="button"]
-            {                
-                height: 2.4em;
-                width:2.4em;
-                background-color: #2f3640;
-                border: rgb(245, 142, 8) 1.2px solid;
-                color:white;
-                border-radius: .5em;
-                font-weight: bolder;
-                cursor: pointer;
-                outline: none;
-            }
-            
+          
 .mid
 {
     margin: 0 ;
@@ -403,39 +187,8 @@ body
                         .midleft-list ul a i{
                         margin-right: .5em;
                         }
-                
 
-               /*   .user-icon img
-                {
-                    border: none; 
-                    padding:0 ;
-                    border: rgb(245, 142, 8) 1px solid;
-                    border-radius: .3em;
-                    cursor: pointer;
-                }
-
-                .user
-                {
-                    border: none;  
-                    justify-self: stretch;
-                    align-items: center;
-                    
-                }
-                .user input[type="button"]
-                {
-                    
-                    outline:none;
-                    background-color: #2f3640;
-                    border: rgb(245, 142, 8) 1px solid;
-                    border-radius: .3em;
-                    padding: 0.2em;
-                    height: 90%;
-                    width: 100%;
-                    color: white;
-                    font-weight: normal;
-                    cursor: pointer;
-                }
-                */
+                        
 
             .contact
             {
@@ -521,7 +274,7 @@ body
             
         .card3
         {
-            grid-column:3/5;
+            grid-column:2/5;
             grid-row:2/4;
             padding:1em;
             border-radius: .5em;
@@ -534,77 +287,39 @@ body
         .card4
         {   
             padding: 1em .3em 1em 1em;
-            grid-column: 2/6;
-            grid-row: 1/2;
+            grid-column: 1/5;
+            grid-row: 1/1;
             overflow: hidden;
             overflow-y:scroll;
             
         }
 
-        /* .card5
+         .card5
         {   
             padding: 1em .3em 1em 1em;
-            grid-column: 4/7;
-            grid-row: 3/8;
-            overflow: auto;
+            grid-column: 1/5;
+            grid-row: 2/2;
+            overflow: hidden;
             overflow-y:scroll;
-            display: grid;
-            grid-template-rows: 1.5em auto 2em;
-            grid-gap:.3em;
         }
 
-            .card5 h5
-            {
-                font-weight: normal;
-                font-size: 1em;
-                margin:0 0.8em;
-                padding:  0;
-            }
-            .card5-add-button a
-            {
-                border: #009879 1px solid;
-                color: #ffffff;
-                justify-self: center;
-                width: fit-content;
-                padding:.3em .5em;
-                background-color: #018b70;
-                content: icon;
-                border-radius: .5em;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            }
-            .content-table button
-            {
-                border: #009879 1px solid;
-                text-decoration: none;
-                color: #ffffff;
-                padding: .2em 0;
-                border-radius: 5px;
-                background:#009879;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            }
+        .card6
+        {   
+            padding: 1em .3em 1em 1em;
+            grid-column: 5/7;
+            grid-row: 1/1;
+            overflow: hidden;
+            overflow-y:scroll;
+        }
 
-            .content-table button:hover
-            {
-                border: #009879 1px solid;
-                background-color: #444647;
-            }
-            .card5-add-button a:hover
-            {
-                border: #009879 1px solid;
-                background-color: #444647;
-
-            }
-            
-            .card5-content
-            {
-                width: fit-content;
-                justify-self: center;
-                overflow:hidden;
-                overflow-y: scroll;
-            }
-               */
-
-
+        .card7
+        {   
+            padding: 1em .3em 1em 1em;
+            grid-column: 5/7;
+            grid-row: 2/2;
+            overflow: hidden;
+            overflow-y:scroll;
+        }
 /* ------------------------------------------------------------------------------------ */
  /* ------------------------------------------------------------------------------------ */
         
@@ -658,11 +373,8 @@ body
             background-color: #424446f1;
         }
        
-        /* .nested-right>div:nth-child(odd)
-        {
-            background:#424446f1 ;
-        }
-         */
+
+
         .box1
         {
             grid-column: 1/2;
@@ -896,6 +608,25 @@ input[type="button"]:active
     cursor: pointer;
     outline:none;
 }
+
+
+.alert {
+    height: 2em;
+    background: red;
+    font-size: medium;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgb(0,0,0,.5);
+    position: fixed;
+    right: 20px;
+    transition: 0.1s;
+    outline: none;
+    border:none;
+    }
+                
 
 .floating-btn
 {

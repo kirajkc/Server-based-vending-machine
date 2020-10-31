@@ -18,12 +18,12 @@
                                     </thead>
                                     
                                      <tbody>
-                                        {% for chart in chart.all%}
+                                        {% for vend in vend1.all%}
                                         <tr>
-                                          <td>{{chart.tagid}}</td>
-                                          <td>{{chart.item}}</td>
-                                          <td>{{chart.quantity}}</td>
-                                          <td>{{chart.price}}</td>
+                                          <td>{{vend.tagid}}</td>
+                                          <td>{{vend.item}}</td>
+                                          <td>{{vend.quantity}}</td>
+                                          <td>{{vend.price}}</td>
                                         </tr>
                                         {% endfor %}
                                       </tbody>

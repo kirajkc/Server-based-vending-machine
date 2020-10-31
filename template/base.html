@@ -13,73 +13,52 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="{% static "css/main.css"%}">
-        <Title>Dashboard</Title>
+        <Title>DIGIVEND</Title>
+        <link rel="shortcut icon" type="image/png" href="static/logo.png">
         
 
 </head>
     <body>
-        <a href="#" class="material-icons floating-btn">add</a>
-
+        {% if user.is_authenticated %}
+        <a href="{%url "add"%}" class="material-icons floating-btn">add</a>
+        {% endif %}
         <div class="body-left">   
-            <div class="body-list">
-                <input type="checkbox" id="check">
-                <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-                <i class="fas fa-times" id="cancel"></i>
-                </label>
-                <div class="sidebar">
-                <header>My App</header>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-                        <li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
-                        <li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
-                        <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
-                        <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
-                        <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
-                        <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
-
         </div>
+
 
         <div class="mainbg">
             
             <section class="top">
+                    <div class="logo"><a href="{%url "home"%}"><img src ="{% static "logo.png"%}" height="75"></a>
+                    </div>
+                    {% if user.is_authenticated %}
+                    {%for c in categories.all%}
+                    {% if c.value == 1%}
+                    <div class="alert"> Vending machine at position a requires maintaeance</div>
+                    {%endif%}
+                    {% if c.value == 2%}
+                    <div class="alert"> At vend1 product is shortage</div>
+                    {%endif%}
+                    {%endfor%}
+                    {% endif %}  
                     
-                    <div class="logo"><a href="{%url "home"%}">@DIGI.VEND</a>
-                    </div>
-                        
-                    <div class="searchbar">
-                            <div class="clear"><h1><a href="#">DigiVend</a> : The Modern Way for Vending</h1></div>
-                            <div class="searchbar1">
-                                <input class="search-txt" type="text"  placeholder="Type to search">
-                                <a class="search-btn" href="#">
-                                    <i class="material-icons">search</i>
-                                </a>
-                            </div>
-                            <div class="searchbar2">
-                                    <input type="button" value="Go">
-                            </div>
-                            
-                    </div>
-                      
+                    <div class="clear"><h1><a href="#">DigiVend</a> : The Modern Way for Vending</h1></div>
             </section>
            
             <section class="mid" >
                 <div class="middle" >
                     <div class="middle-left">   
+                        {% if user.is_authenticated %}
                         <div class="detail"><p> Introducing<br><b>THE FUTURE</b></p>
                         </div>
                         <div class="left-list">
                             <div class="midleft-list">
                                
                               <ul>
-                              <header>Dashboard</header>
+                              <header>Dashboard{{alert.alert}}</header>
                                 <li><a href="{%url "home"%}"><i class="fas fa-home"></i>Home</a></li>
                                 <li><a href="{%url "add"%}"><i class="fas fa-plus" style="font-size:24px;"></i>Add</a></li>
-                                {% comment %} <li><a href="{%url "edit"%}"><i class="fas fa-edit"></i>Edit</a></li> {% endcomment %}
+                                <li><a href="{%url "sold"%}"><i class="fas fa-coins"></i>SALES</a></li>
                                 <li><a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt" style="font-size:22px;"></i>Logout<span class="sr-only">(current)</span></a>
                                 <form Id='logout' method="POST" action={% url 'logout' %} >
                                 {% csrf_token %}
@@ -90,27 +69,36 @@
                             </ul>
                             </div>
                         </div>
-                        
+                        {% endif %}
 
 
                     </div>
                     {% block content %}
                     {% endblock content %}
                 
+                
             </section>
            
             <section class="bot">
+                
                 <footer class="bottom">
-                    
+                    {% if user.is_authenticated %}
                     <div class="contact">
                     <p><b>Contact Info:</b><br>@12345678<br>PO.BOX:- NO:213</p>
                     </div>
-                    
+                    {% endif %}
                 </footer>
+                
             </section>
-
+            
         </div>
 
         
     </body>
+    {% comment %} <script>
+window.setTimeout(function () {
+    location.href = "{{ redirect_url }}";;
+}, 10000); // refresh/redirect after 5 seconds.
+
+</script> {% endcomment %}
 </html>
