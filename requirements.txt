@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 beautifulsoup4==4.9.3
 Django==2.1.5
+=======
+Django==2.2.13
+>>>>>>> a4502d91627011a44b8905bcdc43d9d0e032544d
 django-chartit==0.2.9
 django-filter==2.2.0
 djangorestframework==3.11.0
