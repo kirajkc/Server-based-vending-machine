@@ -12,6 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
         <link rel="stylesheet" href="{% static "css/main.css"%}">
         <Title>DIGIVEND</Title>
         <link rel="shortcut icon" type="image/png" href="static/logo.png">
@@ -19,9 +20,6 @@
 
 </head>
     <body>
-        {% if user.is_authenticated %}
-        <a href="{%url "add"%}" class="material-icons floating-btn">add</a>
-        {% endif %}
         <div class="body-left">   
         </div>
 
@@ -57,9 +55,9 @@
                               <ul>
                               <header>Dashboard{{alert.alert}}</header>
                                 <li><a href="{%url "home"%}"><i class="fas fa-home"></i>Home</a></li>
-                                <li><a href="{%url "add"%}"><i class="fas fa-plus" style="font-size:24px;"></i>Add</a></li>
-                                <li><a href="{%url "sold"%}"><i class="fas fa-coins"></i>SALES</a></li>
-                                <li><a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt" style="font-size:22px;"></i>Logout<span class="sr-only">(current)</span></a>
+                                <li><a href="{%url "add"%}"><i class="fas fa-plus" style="font-size:19px;"></i>Add</a></li>
+                                <li><a href="{%url "sold"%}"><i class="fas fa-chart-line"></i>SALES</a></li>
+                                <li><a class="nav-link" href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt" style="font-size:18px;"></i>Logout<span class="sr-only">(current)</span></a>
                                 <form Id='logout' method="POST" action={% url 'logout' %} >
                                 {% csrf_token %}
                                 <input type="hidden" />
@@ -95,10 +93,10 @@
 
         
     </body>
-    {% comment %} <script>
+  <script>
 window.setTimeout(function () {
-    location.href = "{{ redirect_url }}";;
-}, 10000); // refresh/redirect after 5 seconds.
+    location.href = "{{ redirect_url }}";
+},60000); // refresh/redirect after 5 seconds.
 
-</script> {% endcomment %}
+</script> 
 </html>
