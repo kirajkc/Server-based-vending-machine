@@ -33,7 +33,7 @@ body
 .mainbg
 {
     display: grid;
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: 1fr auto;
     margin:  0 ;
     padding:  0;
     background-color:#424446f1;

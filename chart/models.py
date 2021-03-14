@@ -49,6 +49,16 @@ class sold2(models.Model):
         verbose_name_plural = 'sold2'
         ordering = ('saleTime',)
 
+class rfid(models.Model):
+    name=models.TextField(max_length=50,null=True)
+    tagid=models.IntegerField(null=True)
+    amount=models.IntegerField(null=True)
+    
+    def __str__(self):
+        return self.name
+    class Meta: 
+        verbose_name_plural = 'rfid'
+
 
 class alert(models.Model):
 

@@ -58,7 +58,8 @@ def get_data(request):
 
 @login_required(login_url="login/")
 def base(request):
-    return render(request,'base.html')
+    c=alert.objects.all()
+    return render(request,'base.html',{'categories':c})
 
 @login_required(login_url="login/")
 def add(request):

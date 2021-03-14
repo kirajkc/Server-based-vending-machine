@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-beautifulsoup4==4.9.3
 Django==2.1.5
-=======
-Django==2.2.13
->>>>>>> a4502d91627011a44b8905bcdc43d9d0e032544d
 django-chartit==0.2.9
 django-filter==2.2.0
 djangorestframework==3.11.0
 Markdown==3.2.1
 mysqlclient==1.4.6
 pathtools==0.1.2
+Pillow==6.2.0
 pytz==2019.3
 six==1.15.0
-soupsieve==2.0.1
-tornado==6.0.4
-watchdog==0.10.3
-websocket-client==0.57.0
+virtualenv==16.7.9
