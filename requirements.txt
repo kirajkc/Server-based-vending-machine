@@ -5,7 +5,7 @@ djangorestframework==3.11.2
 Markdown==3.2.1
 mysqlclient==1.4.6
 pathtools==0.1.2
-Pillow==8.3.2
+Pillow==9.0.0
 pytz==2019.3
 six==1.15.0
 virtualenv==16.7.9
